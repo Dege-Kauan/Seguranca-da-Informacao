@@ -8,7 +8,28 @@ Organizar e disponibilizar materiais, exercícios, estudos e demais produções 
 
 - Fundamentos e princípios da segurança da informação;
 - Normas e boas práticas (como ISO/IEC 27001 e 27002);
-- Análises e práticas de segurança aplicadas em ambientes computacionais.
+- Análises e práticas de segurança aplicadas em ambientes computacionais;
+- Desenvolvimento de aplicações com ênfase em segurança lógica.
+
+## Projeto: SecureLogin (Atividade Avaliativa 3)
+
+Como parte da Atividade Avaliativa 3 da disciplina, foi desenvolvido um sistema web simples com foco na **segurança do ambiente lógico** e na **gestão de informações sensíveis**, utilizando HTML, CSS e JavaScript.
+
+### Funcionalidades Implementadas
+
+- Tela de **cadastro** com os seguintes dados:
+  - Email
+  - Senha (mínimo de 6 caracteres)
+  - Nome completo
+  - Data de nascimento (formato dia/mês/ano)
+  - Telefone
+  - Endereço
+- Tela de **login** com validação de credenciais;
+- Tela **restrita (dashboard)**, acessível somente após login;
+- **Visualização e edição** dos dados pessoais cadastrados;
+- **Persistência local dos dados** utilizando `localStorage`;
+- **Controle de acesso** via verificação de sessão (`loggedUser`);
+- Validações básicas para prevenir falhas comuns de entrada de dados.
 
 ## Estrutura
 
@@ -17,6 +38,7 @@ A estrutura deste repositório pode incluir:
 - Documentações e relatórios em PDF;
 - Códigos e scripts relacionados a auditoria, criptografia, ou análise de vulnerabilidades;
 - Estudos de caso ou análises práticas;
+- Projeto SecureLogin (HTML, CSS, JS);
 - Outros arquivos vinculados às atividades da disciplina.
 
 ## Sobre o Autor
