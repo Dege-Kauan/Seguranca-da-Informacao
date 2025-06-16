@@ -27,7 +27,7 @@ O documento está disponível em PDF no repositório e inclui:
 
 ---
 
-### 💻 Projeto: SecureLogin (Atividade Avaliativa 3)
+### 💻 Projeto: SecureLogin
 
 Como parte da Atividade Avaliativa 3 da disciplina, foi desenvolvido um sistema web simples com foco na **segurança do ambiente lógico** e na **gestão de informações sensíveis**, utilizando HTML, CSS e JavaScript.
 
@@ -46,18 +46,6 @@ Como parte da Atividade Avaliativa 3 da disciplina, foi desenvolvido um sistema 
 - **Persistência local dos dados** utilizando `localStorage`;
 - **Controle de acesso** via verificação de sessão (`loggedUser`);
 - Validações básicas para prevenir falhas comuns de entrada de dados.
-
----
-
-## Estrutura
-
-A estrutura deste repositório pode incluir:
-
-- Documentações e relatórios em PDF;
-- Códigos e scripts relacionados a auditoria, criptografia, ou análise de vulnerabilidades;
-- Estudos de caso ou análises práticas;
-- Projeto SecureLogin (HTML, CSS, JS);
-- Outros arquivos vinculados às atividades da disciplina.
 
 ---
 
