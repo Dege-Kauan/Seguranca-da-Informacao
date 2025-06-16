@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Área Segura - SecureLogin</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    #dadosUsuario {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      width: 300px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    #dadosUsuario p {
+      margin: 8px 0;
+    }
+
+    button {
+      padding: 10px 15px;
+      margin: 5px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #005fa3;
+    }
+
+    #formContainer {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      width: 300px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    #editarForm button {
+      margin-top: 15px;
+      width: 100%;
+    }
+
+    .data-group {
+      display: flex;
+      gap: 5px;
+    }
+
+    .data-group input {
+      width: 33%;
+    }
+  </style>
+</head>
+<body>
+  <h2>Área Protegida</h2>
+
+  <div id="dadosUsuario"></div>
+
+  <button onclick="mostrarFormulario()">Atualizar Dados</button>
+  <button onclick="logout()">Sair</button>
+
+  <div id="formContainer" style="display:none;">
+    <h3>Editar Perfil</h3>
+    <form id="editarForm">
+      <label for="editNome">Nome completo:</label>
+      <input type="text" id="editNome" required>
+
+      <label>Data de nascimento:</label>
+      <div class="data-group">
+        <input type="number" id="editDia" placeholder="Dia" min="1" max="31" required>
+        <input type="number" id="editMes" placeholder="Mês" min="1" max="12" required>
+        <input type="number" id="editAno" placeholder="Ano" min="1900" max="2100" required>
+      </div>
+
+      <label for="editTelefone">Telefone:</label>
+      <input type="tel" id="editTelefone" required>
+
+      <label for="editEndereco">Endereço:</label>
+      <input type="text" id="editEndereco" required>
+
+      <button type="submit">Salvar Alterações</button>
+    </form>
+  </div>
+
+  <script>
+    const email = localStorage.getItem('loggedUser');
+    if (!email) {
+      alert('Acesso não autorizado. Faça login.');
+      window.location.href = 'index.html';
+    }
+
+    let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+    let usuario = usuarios.find(u => u.email === email);
+
+    const divDados = document.getElementById('dadosUsuario');
+    const form = document.getElementById('editarForm');
+
+    function exibirDados() {
+      divDados.innerHTML = `
+        <p><strong>Email:</strong> ${usuario.email}</p>
+        <p><strong>Nome:</strong> ${usuario.nome || '-'}</p>
+        <p><strong>Data de Nascimento:</strong> ${usuario.data || '-'}</p>
+        <p><strong>Telefone:</strong> ${usuario.telefone || '-'}</p>
+        <p><strong>Endereço:</strong> ${usuario.endereco || '-'}</p>
+      `;
+    }
+
+    function mostrarFormulario() {
+      document.getElementById('formContainer').style.display = 'block';
+      document.getElementById('editNome').value = usuario.nome || '';
+
+      if (usuario.data) {
+        const [dia, mes, ano] = usuario.data.split('/');
+        document.getElementById('editDia').value = dia;
+        document.getElementById('editMes').value = mes;
+        document.getElementById('editAno').value = ano;
+      } else {
+        document.getElementById('editDia').value = '';
+        document.getElementById('editMes').value = '';
+        document.getElementById('editAno').value = '';
+      }
+
+      document.getElementById('editTelefone').value = usuario.telefone || '';
+      document.getElementById('editEndereco').value = usuario.endereco || '';
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const dia = document.getElementById('editDia').value.padStart(2, '0');
+      const mes = document.getElementById('editMes').value.padStart(2, '0');
+      const ano = document.getElementById('editAno').value;
+
+      usuario.nome = document.getElementById('editNome').value;
+      usuario.data = `${dia}/${mes}/${ano}`;
+      usuario.telefone = document.getElementById('editTelefone').value;
+      usuario.endereco = document.getElementById('editEndereco').value;
+
+      usuarios = usuarios.map(u => u.email === email ? usuario : u);
+      localStorage.setItem('usuarios', JSON.stringify(usuarios));
+
+      alert('Dados atualizados com sucesso!');
+      exibirDados();
+      document.getElementById('formContainer').style.display = 'none';
+    });
+
+    function logout() {
+      localStorage.removeItem('loggedUser');
+      window.location.href = 'index.html';
+    }
+
+    exibirDados();
+  </script>
+</body>
+</html>

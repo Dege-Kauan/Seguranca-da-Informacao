@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cadastro - SecureLogin</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h2>Cadastro</h2>
+  <form id="registerForm">
+    <input type="email" id="registerEmail" placeholder="Email" required />
+    <input type="password" id="registerPassword" placeholder="Senha (mín. 6 caracteres)" required />
+    <input type="text" id="nomeCompleto" placeholder="Nome completo" required />
+
+    <div style="display: flex; gap: 5px;">
+      <input type="number" id="diaNascimento" placeholder="Dia" min="1" max="31" required style="width: 30%;">
+      <input type="number" id="mesNascimento" placeholder="Mês" min="1" max="12" required style="width: 30%;">
+      <input type="number" id="anoNascimento" placeholder="Ano" min="1900" max="2100" required style="width: 35%;">
+    </div>
+
+    <input type="tel" id="telefone" placeholder="Telefone" required />
+    <input type="text" id="endereco" placeholder="Endereço" required />
+    <button type="submit">Cadastrar</button>
+    <p>Já tem conta? <a href="index.html">Fazer login</a></p>
+  </form>
+  <script src="js/auth.js"></script>
+</body>
+</html>
