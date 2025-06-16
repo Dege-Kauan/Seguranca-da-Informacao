@@ -4,18 +4,34 @@ Este repositório foi criado como parte das atividades do componente curricular 
 
 ## Objetivo do Repositório
 
-Organizar e disponibilizar materiais, exercícios, estudos e demais produções desenvolvidas ao longo da disciplina, com foco em:
+Organizar e disponibilizar materiais, exercícios, estudos de caso e produções práticas desenvolvidas ao longo da disciplina, com foco em:
 
 - Fundamentos e princípios da segurança da informação;
 - Normas e boas práticas (como ISO/IEC 27001 e 27002);
-- Análises e práticas de segurança aplicadas em ambientes computacionais;
+- Análises aplicadas a cenários de risco e vulnerabilidade;
 - Desenvolvimento de aplicações com ênfase em segurança lógica.
 
-## Projeto: SecureLogin (Atividade Avaliativa 3)
+---
+
+## Conteúdos do Repositório
+
+### 📄 Estudo de Caso – Violação de Princípios da Segurança da Informação
+
+Análise de um cenário simulado de comprometimento de um servidor Linux. A atividade consistiu em identificar os princípios violados (Confidencialidade, Integridade, Disponibilidade, Autenticidade e Responsabilidade) e propor recomendações técnicas para mitigar os riscos observados.
+
+O documento está disponível em PDF no repositório e inclui:
+
+- Fundamentação teórica baseada na ISO/IEC 27001 e 27002;
+- Avaliação dos princípios da segurança da informação violados;
+- Considerações finais e recomendações práticas de segurança.
+
+---
+
+### 💻 Projeto: SecureLogin (Atividade Avaliativa 3)
 
 Como parte da Atividade Avaliativa 3 da disciplina, foi desenvolvido um sistema web simples com foco na **segurança do ambiente lógico** e na **gestão de informações sensíveis**, utilizando HTML, CSS e JavaScript.
 
-### Funcionalidades Implementadas
+#### Funcionalidades Implementadas
 
 - Tela de **cadastro** com os seguintes dados:
   - Email
@@ -31,6 +47,8 @@ Como parte da Atividade Avaliativa 3 da disciplina, foi desenvolvido um sistema 
 - **Controle de acesso** via verificação de sessão (`loggedUser`);
 - Validações básicas para prevenir falhas comuns de entrada de dados.
 
+---
+
 ## Estrutura
 
 A estrutura deste repositório pode incluir:
@@ -40,6 +58,8 @@ A estrutura deste repositório pode incluir:
 - Estudos de caso ou análises práticas;
 - Projeto SecureLogin (HTML, CSS, JS);
 - Outros arquivos vinculados às atividades da disciplina.
+
+---
 
 ## Sobre o Autor
 
